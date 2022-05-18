@@ -24,22 +24,23 @@ const Login = () => {
     }
 
     return (
-        <div className='w-1/3 mx-auto flex items-center mt-8 justify-center'>
-            <div class="card w-96 bg-base-100 shadow">
+        <div className='w-1/3 mx-auto flex items-center mt-4 justify-center'>
+            <div className="card w-96 bg-base-100 shadow">
                 <div className="card-body border-0 pt-4">
                     <h3 className='text-center font-semibold text-xl uppercase'>Login</h3>
+                    <p className='text-center text-red-500 m-0'><small>Please try to Signin in with Google</small></p>
                     <form action="" className='w-full grid grid-cols-1 gap-2'>
-                        <input type="email" name='email' placeholder="Your Email" class="input input-bordered input-md w-full max-w-xs" />
-                        <input type="password" name='password' placeholder="Your Password" class="input input-bordered input-md w-full max-w-xs" />
-                        <input type="submit" value="Login" class=" uppercase text-white rounded-lg bg-accent  input-md w-full max-w-xs" />
+                        <input disabled type="email" name='email' placeholder="Your Email" className="input input-bordered input-md w-full max-w-xs" />
+                        <input disabled type="password" name='password' placeholder="Your Password" className="input input-bordered input-md w-full max-w-xs" />
+                        <input disabled type="submit" value="Login" className=" cursor-not-allowed uppercase text-white rounded-lg bg-accent  input-md w-full max-w-xs" />
                         <p><small>New to Todo App? <Link to='/signup' className='underline text-accent'>Signup</Link></small></p>
-                        <div class="divider m-0 text-sm">OR</div>
+                        <div className="divider m-0 text-sm">OR</div>
 
 
                     </form>
                     <button
                         onClick={() => signInWithGoogle()}
-                        class="btn btn-outline text-sm">Signin with Google</button>
+                        className="btn btn-outline text-sm">Signin with Google</button>
                 </div>
 
             </div>

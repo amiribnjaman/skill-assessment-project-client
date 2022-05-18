@@ -8,9 +8,9 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth)
 
     return (
-        <div class="navbar bg-white text-black shadow-lg text-center">
-            <div class="w-2/3 mx-auto hidden lg:flex justify-center">
-                <ul class="menu menu-horizontal p-0 flex items-center">
+        <div className="navbar bg-white text-black shadow-lg text-center">
+            <div className="w-2/3 mx-auto hidden lg:flex justify-center">
+                <ul className="menu menu-horizontal p-0 flex items-center">
                     <Link to='/' className='text-xl font-semibold'>TODO App</Link>
                     {user ?
                         <>

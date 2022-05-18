@@ -17,7 +17,6 @@ const AddTaskForm = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data.insertedId);
             if(data.insertedId){
                 toast.success('Task added successfully.')
             }
@@ -31,9 +30,9 @@ const AddTaskForm = () => {
             <form
                 onSubmit={handleAddNewTask}
                 action="" className='w-full grid grid-cols-1 gap-2'>
-                <input type="text" name='task_name' placeholder="Task Name" class="input input-bordered input-md w-full" />
-                <textarea name='description' placeholder="Task Description" class="textarea textarea-bordered h-24"></textarea>
-                <input type="submit" value="Add Task" class=" uppercase cursor-pointer text-white rounded-lg bg-accent  input-md w-full" />
+                <input type="text" name='task_name' placeholder="Task Name" className="input input-bordered input-md w-full" />
+                <textarea name='description' placeholder="Task Description" className="textarea textarea-bordered h-24"></textarea>
+                <input type="submit" value="Add Task" className=" uppercase cursor-pointer text-white rounded-lg bg-accent  input-md w-full" />
             </form>
         </div>
     );

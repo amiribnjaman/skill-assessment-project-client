@@ -14,14 +14,14 @@ const Home = () => {
     }, [reRender])
 
     return (
-        <div class="overflow-x-auto max-h-80 overflow-y-auto w-10/12 mx-auto mt-8">
+        <div className="overflow-x-auto max-h-80 overflow-y-auto w-10/12 mx-auto mt-8">
             <div className='flex justify-between mb-2'>
                 <h2 className='  text-xl font-semibold'>All Tasks</h2>
                 <button
                     onClick={() => navigate('/addtask')}
-                    class="btn btn-active btn-accent text-white">Add A Task</button>
+                    className="btn btn-active btn-accent text-white">Add A Task</button>
             </div>
-            <table class="table table-compact w-full">
+            <table className="table table-compact w-full">
                 <thead className='relative'>
                     <tr className='sticky top-0'>
                         <th className='w-1/12'>SL</th>
@@ -39,7 +39,7 @@ const Home = () => {
                             reRender={reRender}
                             setReRender={setReRender}
                         />)
-                   : 'You didn\'t added a task yet' }
+                   : <p className='text-center mt-8'>You didn\'t added a task yet</p> }
                 </tbody>
             </table>
         </div>

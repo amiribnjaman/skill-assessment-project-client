@@ -7,7 +7,6 @@ const SingleTask = ({ index, task, reRender, setReRender }) => {
     const [strikeThrough, setStrikeThrough] = useState(false)
 
     const handleTaskDelete = id => {
-        console.log(id);
         fetch(`http://localhost:5000/deleteTask/${id}`, {
             method: 'DELETE'
         })
@@ -33,10 +32,10 @@ const SingleTask = ({ index, task, reRender, setReRender }) => {
             <td className='w-4/12'>
                 <button
                     onClick={handleTaskComplete}
-                    class="btn btn-ghost text-accent">{strikeThrough ? 'Undo' : 'Complete'}</button>
+                    className="btn btn-ghost text-accent">{strikeThrough ? 'Undo' : 'Complete'}</button>
                 <button
                     onClick={() => handleTaskDelete(_id)}
-                    class="btn btn-ghost text-red-600">Delete</button>
+                    className="btn btn-ghost text-red-600">Delete</button>
             </td>
         </tr>
     );
