@@ -32,14 +32,14 @@ const Home = () => {
                 </thead>
                 <tbody>
                     {
-                        tasks.map((task, index) => <SingleTask
+                       tasks.length ? tasks.map((task, index) => <SingleTask
                             key={index}
                             task={task}
                             index={index}
                             reRender={reRender}
                             setReRender={setReRender}
                         />)
-                    }
+                   : 'You didn\'t added a task yet' }
                 </tbody>
             </table>
         </div>

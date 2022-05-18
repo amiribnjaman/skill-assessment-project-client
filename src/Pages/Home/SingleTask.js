@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const SingleTask = ({ index, task, reRender, setReRender }) => {
     const { _id, taskName, description } = task
@@ -10,20 +11,28 @@ const SingleTask = ({ index, task, reRender, setReRender }) => {
         fetch(`http://localhost:5000/deleteTask/${id}`, {
             method: 'DELETE'
         })
-        .then(res => res.json())
-        .then(data => {
-            setReRender(!reRender)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setReRender(!reRender)
+            })
     }
+
+    const handleTaskComplete = () => {
+        setStrikeThrough(!strikeThrough)
+        if (!strikeThrough) {
+            toast.success(<p className='text-sm'>You have completed your <span className='font-bold text-black '>{taskName}</span> task.</p>)
+        }
+    }
+
 
     return (
         <tr>
             <td className='w-1/12'>{index + 1}</td>
-            <td className='w-1/5'>{taskName}</td>
-            <td className={`w-2/5 ${strikeThrough ? 'line-through' : ''}`}>{description}</td>
-            <td className='w-1/5'>
+            <td className={`w-3/12 ${strikeThrough ? 'line-through' : ''}`}>{taskName}</td>
+            <td className={`w-6/12 ${strikeThrough ? 'line-through' : ''}`}><p className=''>{description.length > 20 ? description.substr(0, 50)+'...' : description}</p></td>
+            <td className='w-4/12'>
                 <button
-                    onClick={() => setStrikeThrough(!strikeThrough)}
+                    onClick={handleTaskComplete}
                     class="btn btn-ghost text-accent">{strikeThrough ? 'Undo' : 'Complete'}</button>
                 <button
                     onClick={() => handleTaskDelete(_id)}

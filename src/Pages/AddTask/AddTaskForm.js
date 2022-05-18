@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddTaskForm = () => {
 
@@ -17,6 +18,9 @@ const AddTaskForm = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data.insertedId);
+            if(data.insertedId){
+                toast.success('Task added successfully.')
+            }
             e.target.reset()
         })
     }

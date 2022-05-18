@@ -6,6 +6,8 @@ import ProtectedRoute from './Pages/Auth/ProtectedRoute';
 import Signup from './Pages/Auth/Signup';
 import Home from './Pages/Home/Home';
 import Navbar from './Pages/Shared/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -15,18 +17,19 @@ function App() {
         <Routes>
           <Route path='/' element={
             <ProtectedRoute>
-            <Home />
+              <Home />
             </ProtectedRoute>
           } />
           <Route path='/addtask' element={
             <ProtectedRoute>
-            <AddTaskForm />
+              <AddTaskForm />
             </ProtectedRoute>
           } />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-      </Routes>
-    </div>
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+        </Routes>
+        <ToastContainer position="top-center"/>
+      </div>
     </div >
   );
 }
